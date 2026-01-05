@@ -14,11 +14,6 @@ The email claims that the recipient’s bank account has been blocked due to unu
 - **Filename:** `sample1.eml`
 - **Impersonated Brand:** Chase Bank
 - **Analysis Scope:** Header analysis only
-
-A rendered view of the phishing email (opened safely in an email client for visual reference) is included below:
-
-![Phishing Email Screenshot](email_preview.png)
-
 ---
 
 ## Key Header Findings
