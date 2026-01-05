@@ -1,0 +1,37 @@
+Header Analysis Report – Email 2
+
+Date: Wed, 10 Apr 2019 11:46:37 -0600
+Subject: You've got 1 new message [REF: 8]
+To: jsmith@technicalsolutions.com
+
+From: CIBC-Banking.Service.Email.8@caib.com
+
+Reply-To: Not Present
+Return-Path: metzac.logocec8@caib.com
+
+Sender IP: 190.6.201.67
+Resolved Host: mail.ip.gob.hn
+Message-ID: 20190410174637.44CDCC8B58@mail.ip.gob.hn
+
+Description
+
+This email claims to originate from CIBC Bank and informs the recipient that a new message is available, prompting them to activate their account. The message uses urgency and account-related fear to manipulate the recipient into clicking a link. Header analysis shows multiple authentication failures and infrastructure inconsistencies that clearly indicate phishing activity.
+
+Artifact Analysis
+
+Sender Analysis:
+The From address uses CIBC branding but originates from the domain caib.com, which does not belong to the legitimate CIBC Bank. The Return-Path domain also resolves to caib.com, confirming sender-controlled routing. The sending IP address 190.6.201.67 resolves to mail.ip.gob.hn, a Honduran government mail server, which is unrelated to CIBC. SPF authentication failed for the sending IP. No DKIM signature is present, indicating the message was not cryptographically signed. DMARC is not configured for the sending domain, resulting in no policy enforcement. The Message-ID domain aligns with mail.ip.gob.hn, further confirming the email did not originate from a legitimate CIBC mail system. Multiple internal relay hops and abnormal delivery delays were observed, suggesting message relaying through compromised or misused infrastructure.
+
+Verdict
+
+Confirmed Phishing Email
+This email is a phishing attempt impersonating CIBC Bank. The absence of DKIM, failed SPF authentication, missing DMARC policy, mismatched sender domain, and use of unrelated government mail infrastructure conclusively confirm malicious intent.
+
+Defense Actions
+
+Block sender IP 190.6.201.67 at the email gateway.
+Block and monitor the domain caib.com across email security controls.
+Deploy detection rules for financial brand impersonation with failed SPF/DKIM.
+Alert users about phishing campaigns impersonating CIBC Bank.
+Quarantine similar emails with unauthenticated financial branding.
+Report the domain and IP to relevant abuse and threat intelligence feeds.
